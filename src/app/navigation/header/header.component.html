@@ -4,19 +4,35 @@
       </button> -->
 
       <!-- This fills the remaining space of the current row -->
-      <!-- <span class="navtitle">Ng-Cryptocurrency Markets</span>
+      <div fxLayout="row" fxLayoutGap="20px" class="navtitle">
+      <span >NgCrypto Markets</span>
+      <span>Market Cap <a style="color:limegreen">{{marketCap?.marketcap | currency: 'USD' }}</a></span>
+      <span>24H change <a [style.color]="marketCap?.change.day > 0 ? 'LimeGreen' : 'red' ">{{marketCap?.change.day | currency: 'USD' }}</a></span>
+      <span >1H change <a [style.color]="marketCap?.change.hour > 0 ? 'LimeGreen' : 'red' ">{{marketCap?.change.hour | currency: 'USD' }}</a></span>
+      </div>
       <div fxLayout="row" fxShow="false" fxShow.gt-sm>
           <button mat-button routerLink="/products">Regiser</button>
           <button mat-button routerLink="/dashboard">login</button>
       </div>
       <button mat-button  fxHide="false" fxHide.gt-sm>
        <mat-icon>menu</mat-icon>
-      </button> -->
+      </button>
 
-<div fxLayout="row" fxLayoutAlign="center center" >
+      <!-- <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+      <span>Market Cap <a>{{marketCap?.marketcap | currency: 'USD' }}</a></span>
 
 
-</div>
+
+
+
+      <span>24H change <a>{{marketCap?.change.day | currency: 'USD' }}</a></span>
+      <span>1H change <a>{{marketCap?.change.hour | currency: 'USD' }}</a></span>
+
+     </div> -->
+
+
+
+
 
 
 

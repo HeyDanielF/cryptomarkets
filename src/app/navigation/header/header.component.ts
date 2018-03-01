@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { MarketCapService } from './../../services/marketcap.service';
 import { MarketCap } from './../../services/models/marketcap.interface';
 import { Component, OnInit } from '@angular/core';
@@ -14,12 +15,10 @@ export class HeaderComponent implements OnInit {
   constructor(private marketCapService: MarketCapService) { }
 
   ngOnInit() {
-    this.marketCapService
-        .getMarketCap()
-        .subscribe( (data) => {
-          console.log(data);
-        } )
 
+    this.marketCapService.getMarketCap().subscribe(data => {
+      this.marketCap = {...data};
+    })
 
   }
 

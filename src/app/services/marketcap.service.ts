@@ -15,15 +15,16 @@ export class MarketCapService {
     private http:HttpClient
   ) {}
 
-  getMarketCap(){
+  getMarketCap():Observable<MarketCap>{
     return this.http
-               .get(MARKETCAP_API)
-               .map( (data:MarketCap) => {
-                let result = data["market_cap"]
+               .get<MarketCap>(MARKETCAP_API)
+               .map(data =>{
+                return {
+                  marketcap: data["market_cap"],
+                  change:{ day:data.change["24h"], hour: data.change["1h"], week: data.change["7d"]},
+                  dayVolume:data["24h_volume"]
+                }
                })
-
-
-
   }
 
 }
