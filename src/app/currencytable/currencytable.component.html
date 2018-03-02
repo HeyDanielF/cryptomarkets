@@ -1,0 +1,44 @@
+
+<mat-table [dataSource]="dataSource" >
+
+  <!-- ID Column -->
+  <ng-container matColumnDef="Rank">
+    <mat-header-cell *matHeaderCellDef > Rank </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.rank}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Name">
+    <mat-header-cell *matHeaderCellDef > Name </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Market Cap">
+    <mat-header-cell *matHeaderCellDef >Market Cap</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.marketCap}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Price">
+    <mat-header-cell *matHeaderCellDef >Price</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.price}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Volume (24)">
+    <mat-header-cell *matHeaderCellDef >Volume (24)</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.volume}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Circulating Supply">
+    <mat-header-cell *matHeaderCellDef >Circulating Supply</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.circulatingSupply}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Change (24)">
+    <mat-header-cell *matHeaderCellDef >Change (24)</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.change}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;">
+  </mat-row>
+
+</mat-table>

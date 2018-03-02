@@ -7,6 +7,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CurrencytableComponent } from './currencytable/currencytable.component';
 
 
 
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    CurrencytableComponent
   ],
   imports: [
     BrowserModule,
