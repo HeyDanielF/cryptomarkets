@@ -9,32 +9,32 @@
 
   <ng-container matColumnDef="Name">
     <mat-header-cell *matHeaderCellDef > Name </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row.name }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Market Cap">
     <mat-header-cell *matHeaderCellDef >Market Cap</mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.marketCap}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row.market_cap_usd | currency: 'USD' }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Price">
     <mat-header-cell *matHeaderCellDef >Price</mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.price}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row.price_usd  | currency: 'USD' }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Volume (24)">
     <mat-header-cell *matHeaderCellDef >Volume (24)</mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.volume}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row["24h_volume_usd"]  | currency: 'USD'  }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Circulating Supply">
     <mat-header-cell *matHeaderCellDef >Circulating Supply</mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.circulatingSupply}} </mat-cell>
+    <mat-cell *matCellDef="let row"> <span>{{row.symbol}} </span> <span>{{row.total_supply | number}}</span>  </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Change (24)">
     <mat-header-cell *matHeaderCellDef >Change (24)</mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.change}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row.percent_change_24h }} %</mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -42,3 +42,6 @@
   </mat-row>
 
 </mat-table>
+<!--
+{{test ? test["24h_volume_usd"] : null}} -->
+
