@@ -1,40 +1,57 @@
 
-<mat-table [dataSource]="dataSource" >
+  <div  fxLayoutAlign="center center">
+      <i class="material-icons">search</i>
+    <mat-form-field fxFlex="40%">
+       <input matInput (keyup)="applyFilter($event.target.value)"  placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+<mat-table [dataSource]="dataSource" matSort>
 
   <!-- ID Column -->
   <ng-container matColumnDef="Rank">
-    <mat-header-cell *matHeaderCellDef > Rank </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header="rank"> Rank </mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.rank}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Name">
-    <mat-header-cell *matHeaderCellDef > Name </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.name }} </mat-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header="name"> Name </mat-header-cell>
+    <mat-cell *matCellDef="let row"> <img src="https://chasing-coins.com/api/v1/std/logo/{{row.symbol}}" alt="" srcset=""> <a >{{row.name }}</a> </mat-cell>
   </ng-container>
-
+  <!-- <img src="https://chasing-coins.com/api/v1/std/logo/{{row.symbol}}" alt="" srcset="">  -->
   <ng-container matColumnDef="Market Cap">
-    <mat-header-cell *matHeaderCellDef >Market Cap</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header="market_cap_usd">Market Cap</mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.market_cap_usd | currency: 'USD' }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Price">
-    <mat-header-cell *matHeaderCellDef >Price</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header="price_usd">Price</mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.price_usd  | currency: 'USD' }} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="Volume (24)">
-    <mat-header-cell *matHeaderCellDef >Volume (24)</mat-header-cell>
+  <ng-container matColumnDef="Volume (24h)">
+    <mat-header-cell *matHeaderCellDef mat-sort-header="24h_volume_usd">Volume (24h)</mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row["24h_volume_usd"]  | currency: 'USD'  }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Circulating Supply">
-    <mat-header-cell *matHeaderCellDef >Circulating Supply</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header="total_supply">Circulating Supply</mat-header-cell>
     <mat-cell *matCellDef="let row"> <span>{{row.symbol}} </span> <span>{{row.total_supply | number}}</span>  </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="Change (24)">
-    <mat-header-cell *matHeaderCellDef >Change (24)</mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.percent_change_24h }} %</mat-cell>
+  <ng-container matColumnDef="Change (24h)">
+    <mat-header-cell *matHeaderCellDef mat-sort-header="percent_change_24h">Change (24h)</mat-header-cell>
+    <mat-cell *matCellDef="let row" [ngStyle]="{'color':row.percent_change_24h > 0 ? 'green' : 'red' }" > {{row.percent_change_24h }} %</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Change (7d)">
+    <mat-header-cell *matHeaderCellDef mat-sort-header="percent_change_7d">Change (7d)</mat-header-cell>
+    <mat-cell *matCellDef="let row" [ngStyle]="{'color':row.percent_change_7d > 0 ? 'green' : 'red' }" > {{row.percent_change_7d }} %</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Change (1h)">
+    <mat-header-cell *matHeaderCellDef mat-sort-header="percent_change_1h">Change (1h)</mat-header-cell>
+    <mat-cell *matCellDef="let row" [ngStyle]="{'color':row.percent_change_1h > 0 ? 'green' : 'red' }" > {{row.percent_change_1h }} %</mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -42,6 +59,14 @@
   </mat-row>
 
 </mat-table>
+
+
+<mat-paginator #paginator
+[pageSize]="10"
+[pageSizeOptions]="[5, 10, 20]"
+[showFirstLastButtons]="true">
+</mat-paginator>
+
 <!--
 {{test ? test["24h_volume_usd"] : null}} -->
 
