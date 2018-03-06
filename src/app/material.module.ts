@@ -8,6 +8,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { MatInputModule } from '@angular/material';
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTabsModule,
   ],
   exports: [
     MatButtonModule,
@@ -32,6 +34,7 @@ import { MatInputModule } from '@angular/material';
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTabsModule,
   ],
   declarations: [],
   providers: []

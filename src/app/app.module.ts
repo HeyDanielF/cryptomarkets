@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { MarketCapService } from './services/marketcap.service';
 import { MaterialModule } from './material.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,6 +10,7 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencytableComponent } from './currencytable/currencytable.component';
 import { CurrencyDataService } from './services/currencydata.service';
+import { CurrencyComponent } from './currency/currency.component';
 
 
 
@@ -17,7 +19,8 @@ import { CurrencyDataService } from './services/currencydata.service';
   declarations: [
     AppComponent,
     HeaderComponent,
-    CurrencytableComponent
+    CurrencytableComponent,
+    CurrencyComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,7 @@ import { CurrencyDataService } from './services/currencydata.service';
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [
     MarketCapService,

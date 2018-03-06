@@ -1,5 +1,5 @@
 import { CurrencyDataService } from './../services/currencydata.service';
-import { CurrencyData, ICurrencyData } from './../services/models/currencydata.interface';
+import { ICurrencyData } from './../services/models/currencydata.interface';
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 

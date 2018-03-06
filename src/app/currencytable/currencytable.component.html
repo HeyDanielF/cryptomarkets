@@ -16,7 +16,8 @@
 
   <ng-container matColumnDef="Name">
     <mat-header-cell *matHeaderCellDef mat-sort-header="name"> Name </mat-header-cell>
-    <mat-cell *matCellDef="let row"> <img src="https://chasing-coins.com/api/v1/std/logo/{{row.symbol}}" alt="" srcset=""> <a >{{row.name }}</a> </mat-cell>
+    <mat-cell *matCellDef="let row"> <img src="https://chasing-coins.com/api/v1/std/logo/{{row.symbol}}" alt="" srcset="">
+      <a [routerLink]="['/currency',row.symbol]">{{row.name }}</a> </mat-cell>
   </ng-container>
   <!-- <img src="https://chasing-coins.com/api/v1/std/logo/{{row.symbol}}" alt="" srcset="">  -->
   <ng-container matColumnDef="Market Cap">
