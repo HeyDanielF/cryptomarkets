@@ -1,6 +1,10 @@
 <mat-tab-group>
   <mat-tab label="Charts">Content 1</mat-tab>
-  <mat-tab label="Markets">Content 2</mat-tab>
+
+  <mat-tab label="Markets">
+    <app-markets [symbol]="symbol"></app-markets>
+  </mat-tab>
+
   <mat-tab label="Social">Content 3</mat-tab>
   <mat-tab label="Tools">Content 4</mat-tab>
   <mat-tab label="Historical Data">Content 4</mat-tab>

@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CurrencytableComponent } from './currencytable/currencytable.component';
 import { CurrencyDataService } from './services/currencydata.service';
 import { CurrencyComponent } from './currency/currency.component';
+import { MarketsComponent } from './currency/markets/markets.component';
 
 
 
@@ -20,7 +21,8 @@ import { CurrencyComponent } from './currency/currency.component';
     AppComponent,
     HeaderComponent,
     CurrencytableComponent,
-    CurrencyComponent
+    CurrencyComponent,
+    MarketsComponent
   ],
   imports: [
     BrowserModule,

@@ -8,12 +8,17 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class CurrencyComponent implements OnInit {
 
+  symbol:string;
+
   constructor(
     private route:ActivatedRoute
   ) { }
 
   ngOnInit() {
-    let id = this.route.paramMap.subscribe(params => console.log(params.get("symbol")))
+   this.route.paramMap.subscribe(params => this.symbol = params.get("symbol"))
+
+  //  console.log(this.symbol)
   }
+
 
 }

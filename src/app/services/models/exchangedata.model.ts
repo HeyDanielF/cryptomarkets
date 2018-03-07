@@ -1,0 +1,26 @@
+
+export interface IExchanges {
+  TYPE: number,
+  MARKET: string,
+  FROMSYMBOL: string,
+  TOSYMBOL: string,
+  FLAGS: number,
+  PRICE: number,
+  LASTUPDATE: number,
+  LASTVOLUME: number,
+  LASTVOLUMETO: number,
+  LASTTRADEID: number,
+  VOLUME24HOUR: number,
+  VOLUME24HOURTO: number,
+  OPEN24HOUR: number,
+  HIGH24HOUR: number,
+  LOW24HOUR: number,
+  CHANGE24HOUR: number,
+  CHANGEPCT24HOUR: number,
+  CHANGEDAY: number,
+  CHANGEPCTDAY: number,
+  SUPPLY: number,
+  MKTCAP: number,
+  TOTALVOLUME24H: number,
+  TOTALVOLUME24HTO: number
+}
