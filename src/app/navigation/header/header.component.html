@@ -1,13 +1,13 @@
 <mat-toolbar color="primary">
 
       <div fxLayout="row" fxLayoutGap="20px" class="navtitle">
-      <span >NgCrypto Markets</span>
+      <span ></span>
       <span>Market Cap <a style="color:limegreen">{{marketCap?.marketcap | currency: 'USD' }}</a></span>
       <span>24H change <a [style.color]="marketCap?.change.day > 0 ? 'LimeGreen' : 'red' ">{{marketCap?.change.day }} %</a></span>
       <span >1H change <a [style.color]="marketCap?.change.hour > 0 ? 'LimeGreen' : 'red' ">{{marketCap?.change.hour }} %</a></span>
       </div>
       <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-          <button mat-button routerLink="/products">Regiser</button>
+          <button mat-button routerLink="/products">Register</button>
           <button mat-button routerLink="/dashboard">login</button>
       </div>
       <button mat-button  fxHide="false" fxHide.gt-sm>
