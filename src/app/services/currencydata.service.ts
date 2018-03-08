@@ -21,10 +21,7 @@ export class CurrencyDataService {
 
     return this.http.get<IExchanges[]>(MARKETS_API).map( (data) =>{
       // return Object.assign({},data["Data"]["Exchanges"])
-      // return data["Data"]["Exchanges"]
       return data["Data"]["Exchanges"]
-
-
     } )
 
   }

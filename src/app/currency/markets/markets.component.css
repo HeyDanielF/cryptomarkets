@@ -1,0 +1,8 @@
+.mat-header-row, .mat-row{
+  border-bottom: none;
+}
+
+mat-header-cell{
+  font-weight: bold;
+  color: black
+}

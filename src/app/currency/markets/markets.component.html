@@ -1,3 +1,38 @@
-<p>
-  markets works!
-</p>
+<mat-table #table [dataSource]="dataSource">
+
+  <ng-container matColumnDef="Exchange">
+    <mat-header-cell *matHeaderCellDef> Exchange </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.MARKET}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Volume">
+    <mat-header-cell *matHeaderCellDef> Volume (24h) </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.VOLUME24HOUR | currency : "USD"}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Price">
+    <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.PRICE | currency : "USD"}} </mat-cell>
+  </ng-container>
+
+
+  <ng-container matColumnDef="High (24h)">
+    <mat-header-cell *matHeaderCellDef> High (24h) </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.HIGH24HOUR | currency : "USD"}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Low (24h)">
+    <mat-header-cell *matHeaderCellDef>  Low (24h)</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.LOW24HOUR | currency : "USD"}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Change (24h)">
+    <mat-header-cell *matHeaderCellDef> Change (24h) </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.CHANGEPCT24HOUR | number :  '1.2-2' }} % </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+</mat-table>
