@@ -12,6 +12,7 @@ import { CurrencytableComponent } from './currencytable/currencytable.component'
 import { CurrencyDataService } from './services/currencydata.service';
 import { CurrencyComponent } from './currency/currency.component';
 import { MarketsComponent } from './currency/markets/markets.component';
+import { NewsComponent } from './currency/news/news.component';
 
 
 
@@ -22,7 +23,8 @@ import { MarketsComponent } from './currency/markets/markets.component';
     HeaderComponent,
     CurrencytableComponent,
     CurrencyComponent,
-    MarketsComponent
+    MarketsComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,

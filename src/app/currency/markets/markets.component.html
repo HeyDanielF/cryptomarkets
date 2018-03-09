@@ -28,7 +28,7 @@
 
   <ng-container matColumnDef="Change (24h)">
     <mat-header-cell *matHeaderCellDef> Change (24h) </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.CHANGEPCT24HOUR | number :  '1.2-2' }} % </mat-cell>
+    <mat-cell *matCellDef="let element" [style.color]="element.CHANGEPCT24HOUR > 0 ? 'LimeGreen' : 'red' "> {{element.CHANGEPCT24HOUR | number :  '1.2-2' }} % </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
