@@ -17,7 +17,7 @@ export class CurrencyComponent implements OnInit {
   ngOnInit() {
    this.route.paramMap.subscribe(params => this.symbol = params.get("symbol"))
 
-  //  console.log(this.symbol)
+
   }
 
 

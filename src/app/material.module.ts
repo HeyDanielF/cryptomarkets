@@ -7,7 +7,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatExpansionModule } from '@angular/material';
 import {MatTabsModule} from '@angular/material/tabs';
 
 
@@ -23,6 +23,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatFormFieldModule,
     MatInputModule,
     MatTabsModule,
+    MatExpansionModule
   ],
   exports: [
     MatButtonModule,
@@ -35,6 +36,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatFormFieldModule,
     MatInputModule,
     MatTabsModule,
+    MatExpansionModule
   ],
   declarations: [],
   providers: []

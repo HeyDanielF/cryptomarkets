@@ -30,8 +30,7 @@ export class MarketsComponent implements OnInit {
     this.dataService
     .getCurrencyMarkets(this.symbol)
     .subscribe(data => {
-      this.dataSource.data = data
-    console.log(data)})
+      this.dataSource.data = data })
   }
 
 

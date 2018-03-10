@@ -25,7 +25,8 @@ export class CurrencyDataService {
 
   getCurrencyNews(symbol:string){
     const NEWS_API = `https://min-api.cryptocompare.com/data/news/?categories=${symbol}`;
-    return this.http.get<News[]>(NEWS_API);
+    return this.http.get<News[]>(NEWS_API)
+                     .map(data => data.slice(0,15));
 
   }
 
