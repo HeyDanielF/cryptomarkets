@@ -5,7 +5,6 @@ import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-news',
-  encapsulation: ViewEncapsulation.None,
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.css']
 })
