@@ -1,0 +1,35 @@
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+img{
+  max-width: 40px;
+  max-height: 40px;
+  margin-right: 4px;
+  float: left;
+}
+
+.title{
+  font-weight: bold;
+}
+
+.date{
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+mat-icon{
+float: left;
+}
+.newsbody{
+  margin-top: 10px;
+}
+.newsSource{
+  padding-left: 5px;
+  font-weight: bold;
+}
+
+a{
+  color: blue;
+}

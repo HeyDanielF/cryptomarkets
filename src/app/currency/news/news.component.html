@@ -1,0 +1,26 @@
+<mat-accordion>
+
+  <mat-expansion-panel [expanded]="false" *ngFor="let news of newsData">
+    <mat-expansion-panel-header>
+      <div>
+        <div>
+          <img src="{{news.imageurl}}" alt="" srcset="">
+          <span class="title">{{news.title}}</span>
+        </div>
+        <div class="date">
+          {{news.published_on *1000 | date:'medium'}}
+        </div>
+      </div>
+    </mat-expansion-panel-header>
+    <div >
+      <a href="{{news.url}}" target="_blank"><mat-icon>open_in_browser</mat-icon></a>
+      <span class="newsSource">{{news.source}} </span>
+    </div>
+    <div class="newsbody">
+      {{news.body}}
+    </div>
+
+  </mat-expansion-panel>
+
+
+</mat-accordion>
