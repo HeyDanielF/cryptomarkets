@@ -8,7 +8,8 @@
           <span class="title">{{news.title}}</span>
         </div>
         <div class="date">
-          {{news.published_on *1000 | date:'medium'}}
+          <!-- {{news.published_on *1000 | date:'medium'}} -->
+          {{news.published_on  | convertDate }}
         </div>
       </div>
     </mat-expansion-panel-header>

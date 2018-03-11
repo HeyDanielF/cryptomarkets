@@ -15,6 +15,8 @@ import { CurrencyDataService } from './services/currencydata.service';
 import { CurrencyComponent } from './currency/currency.component';
 import { MarketsComponent } from './currency/markets/markets.component';
 import { NewsComponent } from './currency/news/news.component';
+import { ConvertDatePipe } from './pipes/convertdate.pipe';
+import { HistoricalComponent } from './currency/historical/historical.component';
 
 
 
@@ -26,7 +28,9 @@ import { NewsComponent } from './currency/news/news.component';
     CurrencytableComponent,
     CurrencyComponent,
     MarketsComponent,
-    NewsComponent
+    NewsComponent,
+    ConvertDatePipe,
+    HistoricalComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,7 @@ import { NewsComponent } from './currency/news/news.component';
   providers: [
     MarketCapService,
     CurrencyDataService,
+    ConvertDatePipe,
   ],
   bootstrap: [AppComponent]
 })

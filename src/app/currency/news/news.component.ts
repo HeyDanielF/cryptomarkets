@@ -31,8 +31,6 @@ export class NewsComponent implements OnInit {
     this.dataService.getCurrencyNews(this.symbol)
                     .subscribe( (data:News[]) =>{
                       this.newsData = data;
-
-                        console.log(this.newsData)
                     })
   }
 

@@ -7,11 +7,12 @@
 
   <mat-tab label="News">
       <ng-template matTabContent>
-
-    <app-news [symbol]="symbol"></app-news>
-        </ng-template>
+          <app-news [symbol]="symbol"></app-news>
+      </ng-template>
   </mat-tab>
 
   <mat-tab label="Tools">Content 4</mat-tab>
-  <mat-tab label="Historical Data">Content 4</mat-tab>
+  <mat-tab label="Historical Data">
+    <app-historical [symbol]="symbol"></app-historical>
+  </mat-tab>
 </mat-tab-group>

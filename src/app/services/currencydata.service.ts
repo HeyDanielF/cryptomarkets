@@ -1,3 +1,4 @@
+import { HistoricalData } from './models/historicaldata.model';
 import { News } from './models/newsdata.interface';
 import { IExchanges } from './models/exchangedata.model';
 import { ICurrencyData } from './models/currencydata.interface';
@@ -27,6 +28,21 @@ export class CurrencyDataService {
     const NEWS_API = `https://min-api.cryptocompare.com/data/news/?categories=${symbol}`;
     return this.http.get<News[]>(NEWS_API)
                      .map(data => data.slice(0,15));
+
+  }
+
+  getHistoricalData(symbol: string){
+    const limit = 10;
+    const HISTORICALDATA_API = `https://min-api.cryptocompare.com/data/histoday?fsym=${symbol}&tsym=USD&limit=${limit}`
+
+    return this.http.get<HistoricalData[]>(HISTORICALDATA_API)
+                    .map(data => {
+                      return {
+                        timeTo: data["TimeTo"],
+                        timeFrom:data["TimeFrom"],
+                        data:data["Data"]
+                      }
+                    })
 
   }
 
