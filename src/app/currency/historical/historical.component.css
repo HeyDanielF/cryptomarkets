@@ -1,0 +1,14 @@
+.mat-header-row, .mat-row{
+  border-bottom: none;
+}
+
+mat-header-cell{
+  font-weight: bold;
+  color: black
+}
+
+
+mat-paginator{
+  border-top: 1px solid;
+}
+

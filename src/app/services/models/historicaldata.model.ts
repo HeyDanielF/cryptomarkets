@@ -3,12 +3,12 @@
 export interface HistoricalData {
   timeTo: Date,
   timeFrom:Date,
-  data: Data
+  data: TimePeriodData[]
 }
 
 
 
-export interface Data {
+export interface TimePeriodData {
   time: Date,
   close: number,
   high: number,

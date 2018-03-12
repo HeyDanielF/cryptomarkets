@@ -1,3 +1,41 @@
-<p>
-  historical works!
-</p>
+<mat-table #table [dataSource]="dataSource" matSort
+matSortActive="time" matSortDirection="desc">
+
+  <ng-container matColumnDef="Date">
+    <mat-header-cell *matHeaderCellDef mat-sort-header="time"> Date </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.time | convertDate}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Open">
+      <mat-header-cell *matHeaderCellDef mat-sort-header="open"> Open </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.open | currency : "USD"}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="High">
+      <mat-header-cell *matHeaderCellDef mat-sort-header="high"> High </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.high | currency : "USD" }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Low">
+      <mat-header-cell *matHeaderCellDef mat-sort-header="low"> Low </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.low | currency : "USD" }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Close">
+      <mat-header-cell *matHeaderCellDef mat-sort-header="close"> Close </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.close  | currency : "USD"}}</mat-cell>
+  </ng-container>
+
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+</mat-table>
+
+<mat-paginator #paginator
+[pageSize]="10"
+[pageSizeOptions]="[5, 10, 20]"
+[showFirstLastButtons]="true">
+</mat-paginator>
