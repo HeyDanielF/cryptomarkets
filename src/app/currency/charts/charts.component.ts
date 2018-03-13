@@ -29,7 +29,7 @@ export class ChartsComponent implements OnInit {
 
   historicalLow:number[] = [];
   historicalHigh:number[] = [];
-  historicalDates:number[] = [];
+  historicalDates:string[] = [];
 
   constructor(
     private currencyService:CurrencyDataService
@@ -42,9 +42,26 @@ export class ChartsComponent implements OnInit {
   getHistoricalData(){
     this.currencyService.getHistoricalData(this.symbol)
         .subscribe(data =>{
-          console.log(data);
-        })
+
+          for(let index of data.data){
+            this.historicalHigh.push(index.high);
+            this.historicalLow.push(index.low);
+            this.historicalDates.push(new Date(index.time * 1000).toLocaleDateString());
+          }
+
+          console.log(this.historicalDates);
+
+        });
 
   }
+
+  formatDate(date:Date){
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    date.toLocaleDateString('en-us', options)
+
+    return date
+  }
+
+
 
 }
