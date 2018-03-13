@@ -17,7 +17,8 @@ import { MarketsComponent } from './currency/markets/markets.component';
 import { NewsComponent } from './currency/news/news.component';
 import { ConvertDatePipe } from './pipes/convertdate.pipe';
 import { HistoricalComponent } from './currency/historical/historical.component';
-
+import { ChartsComponent } from './currency/charts/charts.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -30,7 +31,8 @@ import { HistoricalComponent } from './currency/historical/historical.component'
     MarketsComponent,
     NewsComponent,
     ConvertDatePipe,
-    HistoricalComponent
+    HistoricalComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { HistoricalComponent } from './currency/historical/historical.component'
     FlexLayoutModule,
     HttpClientModule,
     AppRoutingModule,
+    ChartsModule
   ],
   providers: [
     MarketCapService,

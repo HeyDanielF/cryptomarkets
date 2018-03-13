@@ -31,7 +31,7 @@ export class HistoricalComponent implements OnInit,AfterViewInit {
     .getHistoricalData(this.symbol)
     .subscribe((data:HistoricalData) => {
       this.dataSource.data = data.data;
-      console.log(data.data);
+
     })
   }
 

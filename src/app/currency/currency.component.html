@@ -1,5 +1,7 @@
 <mat-tab-group >
-  <mat-tab label="Charts">Content 1</mat-tab>
+  <mat-tab label="Charts">
+    <app-charts [symbol]="symbol"></app-charts>
+  </mat-tab>
 
   <mat-tab label="Markets">
     <app-markets [symbol]="symbol"></app-markets>
