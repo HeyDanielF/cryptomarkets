@@ -1,5 +1,5 @@
 import { CurrencyDataService } from './../../services/currencydata.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import {Chart} from 'chart.js';
 
 @Component({
@@ -8,6 +8,17 @@ import {Chart} from 'chart.js';
   styleUrls: ['./charts.component.css']
 })
 export class ChartsComponent implements OnInit {
+  historicalLow: number[] = [];
+  historicalHigh: number[] = [];
+  historicalDates: string[] = [];
+
+  chartData: Array<any> = [
+    { data: [] },
+    { data: [] },
+
+  ];
+
+  chartLabels =  [];
 
   @Input() symbol: string;
 
@@ -15,21 +26,14 @@ export class ChartsComponent implements OnInit {
     responsive: true
   };
 
-  chartData = [
-    { data: [330, 600, 260, 700], label: 'Account A' },
-    { data: [120, 455, 100, 340], label: 'Account B' },
-    { data: [45, 67, 800, 500], label: 'Account C' }
-  ];
+
 
   onChartClick(event) {
     console.log(event);
   }
 
-  chartLabels = ['January', 'February', 'Mars', 'April'];
 
-  historicalLow:number[] = [];
-  historicalHigh:number[] = [];
-  historicalDates:string[] = [];
+
 
   constructor(
     private currencyService:CurrencyDataService
@@ -39,28 +43,31 @@ export class ChartsComponent implements OnInit {
     this.getHistoricalData();
   }
 
-  getHistoricalData(){
+  getHistoricalData() {
     this.currencyService.getHistoricalData(this.symbol)
-        .subscribe(data =>{
+        .subscribe(data => {
+          this.chartLabels.length = 0;
 
-          for(let index of data.data){
+          for(const index of data.data) {
             this.historicalHigh.push(index.high);
             this.historicalLow.push(index.low);
-            this.historicalDates.push(new Date(index.time * 1000).toLocaleDateString());
+
+            // this.historicalDates.push(new Date(index.time * 1000).toLocaleDateString());
+            this.chartLabels.push(new Date(index.time * 1000).toLocaleDateString());
           }
 
-          console.log(this.historicalDates);
+          this.chartData = [
+            { data: this.historicalHigh, label: 'High' },
+            { data: this.historicalLow , label: 'Low'},
+          ];
+
+          console.log(data.data);
 
         });
 
   }
 
-  formatDate(date:Date){
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    date.toLocaleDateString('en-us', options)
 
-    return date
-  }
 
 
 

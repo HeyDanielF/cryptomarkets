@@ -9,6 +9,8 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule, MatExpansionModule } from '@angular/material';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatFormFieldModule,
     MatInputModule,
     MatTabsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule,
   ],
   exports: [
     MatButtonModule,
@@ -36,7 +39,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatFormFieldModule,
     MatInputModule,
     MatTabsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule,
   ],
   declarations: [],
   providers: []

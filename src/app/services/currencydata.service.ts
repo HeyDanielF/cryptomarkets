@@ -32,7 +32,7 @@ export class CurrencyDataService {
   }
 
   getHistoricalData(symbol: string){
-    const limit = 20;
+    const limit = 30;
     const HISTORICALDATA_API = `https://min-api.cryptocompare.com/data/histoday?fsym=${symbol}&tsym=USD&limit=${limit}`
 
     return this.http.get<HistoricalData>(HISTORICALDATA_API)
