@@ -1,11 +1,20 @@
-<div class="timeperiod">
-<mat-form-field>
-  <mat-select placeholder="Time Period">
-  </mat-select>
-</mat-form-field>
-</div>
 
-<div class="chartContainer" >
+<mat-spinner [diameter]="270" *ngIf="isLoading"></mat-spinner>
+
+<div class="chartContainer" *ngIf="!isLoading">
+
+  <div>
+    <mat-form-field>
+        <mat-select  (selectionChange)="ngTest($event.value)" placeholder="Time Period" [(value)]="timeSelected">
+            <mat-option [value]="7">7 days</mat-option>
+            <mat-option [value]="14">14 days</mat-option>
+            <mat-option [value]="30">30 days</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <span class='timeperiod'><strong>Time Period</strong> {{timeFrame.timeFrom}} - {{timeFrame.timeTo}}</span>
+
+    </div>
   <canvas
       baseChart
       [chartType]="'line'"
@@ -16,3 +25,5 @@
       (chartClick)="onChartClick($event)">
   </canvas>
 </div>
+
+

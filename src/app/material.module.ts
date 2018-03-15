@@ -10,7 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule, MatExpansionModule } from '@angular/material';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -27,6 +27,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatTabsModule,
     MatExpansionModule,
     MatSelectModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     MatButtonModule,
@@ -41,6 +42,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatTabsModule,
     MatExpansionModule,
     MatSelectModule,
+    MatProgressSpinnerModule,
   ],
   declarations: [],
   providers: []

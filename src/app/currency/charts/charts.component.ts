@@ -1,6 +1,8 @@
 import { CurrencyDataService } from './../../services/currencydata.service';
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import {Chart} from 'chart.js';
+import { MatSelectChange } from '@angular/material';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-charts',
@@ -11,6 +13,9 @@ export class ChartsComponent implements OnInit {
   historicalLow: number[] = [];
   historicalHigh: number[] = [];
   historicalDates: string[] = [];
+  timeFrame = { timeFrom:null , timeTo:null };
+  isLoading = true;
+  timeSelected = 14;
 
   chartData: Array<any> = [
     { data: [] },
@@ -18,9 +23,13 @@ export class ChartsComponent implements OnInit {
 
   ];
 
+  @ViewChild(BaseChartDirective) chart:BaseChartDirective;
+
   chartLabels =  [];
 
   @Input() symbol: string;
+
+  @Output() selectionChange: EventEmitter<MatSelectChange>;
 
   chartOptions = {
     responsive: true
@@ -43,10 +52,16 @@ export class ChartsComponent implements OnInit {
     this.getHistoricalData();
   }
 
-  getHistoricalData() {
-    this.currencyService.getHistoricalData(this.symbol)
+  ngTest($event: EventEmitter<MatSelectChange>){
+    this.isLoading = true;
+    this.getHistoricalData($event.toString());
+
+  }
+
+  getHistoricalData(time:string = null) {
+    this.currencyService.getHistoricalData(this.symbol,this.timeSelected)
         .subscribe(data => {
-          this.chartLabels.length = 0;
+
 
           for(const index of data.data) {
             this.historicalHigh.push(index.high);
@@ -61,7 +76,16 @@ export class ChartsComponent implements OnInit {
             { data: this.historicalLow , label: 'Low'},
           ];
 
-          console.log(data.data);
+          console.log(data);
+          this.timeFrame = {
+            timeFrom: new Date(data.timeFrom * 1000).toLocaleDateString(),
+            timeTo: new Date(data.timeTo * 1000).toLocaleDateString()
+          }
+
+
+          this.isLoading = false;
+
+          // console.log(this.timeFrame)
 
         });
 

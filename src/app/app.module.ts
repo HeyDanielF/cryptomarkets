@@ -18,7 +18,7 @@ import { NewsComponent } from './currency/news/news.component';
 import { ConvertDatePipe } from './pipes/convertdate.pipe';
 import { HistoricalComponent } from './currency/historical/historical.component';
 import { ChartsComponent } from './currency/charts/charts.component';
-import { ChartsModule } from 'ng2-charts';
+import { ChartsModule } from 'ng4-charts/ng4-charts';
 
 
 

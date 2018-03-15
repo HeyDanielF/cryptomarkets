@@ -18,6 +18,7 @@ export class HistoricalComponent implements OnInit,AfterViewInit {
 
   displayedColumns = ["Date","Open","High","Low","Close"];
   dataSource = new MatTableDataSource<TimePeriodData>();
+  timeFrame = 30;
 
   constructor(private currencyService:CurrencyDataService) { }
 
@@ -28,7 +29,7 @@ export class HistoricalComponent implements OnInit,AfterViewInit {
 
   getHistoricalTableData(){
     this.currencyService
-    .getHistoricalData(this.symbol)
+    .getHistoricalData(this.symbol,this.timeFrame)
     .subscribe((data:HistoricalData) => {
       this.dataSource.data = data.data;
 
