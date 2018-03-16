@@ -19,6 +19,7 @@ import { ConvertDatePipe } from './pipes/convertdate.pipe';
 import { HistoricalComponent } from './currency/historical/historical.component';
 import { ChartsComponent } from './currency/charts/charts.component';
 import { ChartsModule } from 'ng4-charts/ng4-charts';
+import { SocialComponent } from './currency/social/social.component';
 
 
 
@@ -32,7 +33,8 @@ import { ChartsModule } from 'ng4-charts/ng4-charts';
     NewsComponent,
     ConvertDatePipe,
     HistoricalComponent,
-    ChartsComponent
+    ChartsComponent,
+    SocialComponent
   ],
   imports: [
     BrowserModule,
